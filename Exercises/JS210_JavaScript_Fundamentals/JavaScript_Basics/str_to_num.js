@@ -13,12 +13,41 @@
 
   PEDAC
 
-  Problem:
+  Problem: create a simplified parseInt function that converts string of numeric characters to number. All input will be valid numeric characters without leading signs. Do not use built-in function for this.
 
   Examples and test cases:
+
+    stringToInteger('4321');      // 4321
+    stringToInteger('570');       // 570
 
   Data Structure:
 
   Algorithm:
 
+    1) Split the string into each character/digit in an array. 
+    2) Map the array into its ASCII values.
+    2.1) Find the difference between ASCII digits from 0 to 9 and their literal meaning.
+    3) Correct each element of the mapped/returned array into its literal corresponding digit.
+    4) Reverse this array.
+    5) Initialize answer local variable to zero. Iterate from zero to length of array/string minus one.
+    6) At each iteration, add to answer itself plus array at iteration index times 10 to the power of said index.
+    7) Return answer.
+
 */
+
+function stringToInteger(characters) {
+  let numbers_arr = [];
+  for (let i = 0; i < characters.length; i++) {
+    numbers_arr.push(characters.charCodeAt(i));
+  }
+  numbers_arr = numbers_arr.map( ele => ele - 48 );
+  numbers_arr.reverse();
+  answer = 0;
+  for (let i = 0; i < characters.length; i++) {
+    answer += numbers_arr[i] * (10 ** i);
+  }
+  return answer
+}
+
+console.log(stringToInteger('4321'));      // 4321
+console.log(stringToInteger('570'));       // 570
