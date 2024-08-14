@@ -11,4 +11,17 @@
   penultimate('last word');                    // expected: "last"
   penultimate('Launch School is great!');      // expected: "is"
 
+  Solution:
+
+  The problem is that the funtion is trying to use negative index in an array. Unlike other languages, JS doesn't have those. An alternative would be to could back from the length, so instead of -2 we would have arr.length - 2 inside the brackets after the string has been split into an array assigned to arr.
+
 */
+
+function penultimate(string) {
+  // return string.split(' ')[-2];
+  let arr = string.split(' ')
+  return arr[arr.length - 2];
+}
+                                                                 
+console.log(penultimate('last word'));                    // expected: "last"
+console.log(penultimate('Launch School is great!'));      // expected: "is"

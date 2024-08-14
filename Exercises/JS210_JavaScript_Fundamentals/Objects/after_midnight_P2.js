@@ -35,3 +35,24 @@
   }
 
 */
+
+function afterMidnight(time) {
+  let hours = Number(time.slice(0, 2));
+  let minutes = Number(time.slice(3, 5));
+
+  let date = new Date();
+  date.setTime(0);
+  date.setUTCHours(hours);
+  date.setUTCMinutes(minutes);
+  return date.getTime() / (60 * 1000);
+}
+
+function beforeMidnight(time) {
+  let minAfterMidnight = afterMidnight(time);
+  return (1440 - minAfterMidnight)  % 1440;
+}
+
+console.log(afterMidnight('00:00'));       // 0
+console.log(beforeMidnight('00:00'));      // 0
+console.log(afterMidnight('12:34'));       // 754
+console.log(beforeMidnight('12:34'));      // 686

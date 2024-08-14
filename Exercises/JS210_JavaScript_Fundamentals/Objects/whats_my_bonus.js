@@ -12,4 +12,16 @@
   calculateBonus(1000, false);              // 0
   calculateBonus(50000, true);              // 25000
 
+  Solution:
+
+  The function uses a ternary operator, which is a sort of a shorter if conditional. The Condition for this operator should be the second argument, and since it is using bracket notation to extract it, we need to have it in an array, which is obtained through the use of the spread operator in the parameters list. 
+
 */
+
+function calculateBonus(...args) {
+  return args[1] ? args[0] / 2 : 0;
+}
+                                                   
+console.log(calculateBonus(2800, true));               // 1400
+console.log(calculateBonus(1000, false));              // 0
+console.log(calculateBonus(50000, true));              // 25000
