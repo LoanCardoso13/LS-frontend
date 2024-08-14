@@ -22,4 +22,28 @@
 
   Algorithm:
 
+    Initialize answer to empty array.
+    Do block while numberLeft is not zero
+      Stringify last number of input and add to answer array
+      (get from charcode the input remainder by 10 and push it to answer)
+      Convert number to leftover from removing first digit
+    Reverse answer
+    Return joined answer with empty string joiner
+
 */
+
+const ASCII_TO_INTEGER_DIFF = 48;
+
+function integerToString(n) {
+  let answer = [];
+  do {
+    answer.push(String.fromCharCode((n % 10) + ASCII_TO_INTEGER_DIFF));
+    n = Math.floor(n / 10);
+  } while (n !== 0)
+  answer.reverse();
+  return answer.join('');
+}
+
+console.log(integerToString(4321));      // "4321"
+console.log(integerToString(0));         // "0"
+console.log(integerToString(5000));      // "5000"

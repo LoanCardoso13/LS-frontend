@@ -35,12 +35,14 @@
 
 */
 
+const ASCII_TO_INTEGER_DIFF = 48;
+
 function stringToInteger(characters) {
   let numbers_arr = [];
   for (let i = 0; i < characters.length; i++) {
     numbers_arr.push(characters.charCodeAt(i));
   }
-  numbers_arr = numbers_arr.map( ele => ele - 48 );
+  numbers_arr = numbers_arr.map( ele => ele - ASCII_TO_INTEGER_DIFF );
   numbers_arr.reverse();
   answer = 0;
   for (let i = 0; i < characters.length; i++) {
