@@ -10,3 +10,14 @@
   isPalindrome('356653');              // true
 
 */
+function isPalindrome(str) {
+  let str2 = str.slice();
+  str2 = str2.split('').reverse().join('');
+
+  return str === str2;
+}
+
+console.log(isPalindrome('madam'));               // true
+console.log(isPalindrome('Madam'));               // false (case matters)
+console.log(isPalindrome("madam i'm adam"));      // false (all characters matter)
+console.log(isPalindrome('356653'));              // true

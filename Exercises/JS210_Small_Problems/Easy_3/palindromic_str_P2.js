@@ -12,3 +12,26 @@
   isRealPalindrome('123ab321');            // false
 
 */
+
+function isPalindrome(str) {
+  let str2 = str.slice().toLowerCase();
+  str2 = str2.split('').reverse().join('');
+
+  return str.toLowerCase() === str2;
+}
+
+function isRealPalindrome(str) {
+  filteredStr = filterNonAlphabetic(str);
+  return isPalindrome(filteredStr);
+}
+
+function filterNonAlphabetic(str) {
+  return str.split('').filter(character => !!character.match(/[a-z]/gi)).join('');
+}
+
+console.log(isRealPalindrome('madam'));               // true
+console.log(isRealPalindrome('Madam'));               // true (case does not matter)
+console.log(isRealPalindrome("Madam, I'm Adam"));     // true (only alphanumerics matter)
+console.log(isRealPalindrome('356653'));              // true
+console.log(isRealPalindrome('356a653'));             // true
+console.log(isRealPalindrome('123ab321'));            // false

@@ -11,4 +11,16 @@
     }
   }
 
+  Solution:
+
+  This is gonna be an infinite loop since the else condition is never activated and thence the iterator variable, i, which is the basis of the conditional to break the loop, is never increased. To fix we just need to get rid of the else condition.
+
 */
+
+let i = 0;
+while (i < 10) {
+  if (i % 3 === 0) {
+    console.log(i);
+  }
+    i += 1;
+}

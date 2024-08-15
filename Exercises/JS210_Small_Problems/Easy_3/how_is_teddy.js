@@ -7,3 +7,7 @@
   Teddy is 69 years old!
 
 */
+
+let teddyAge = Math.round(Math.random() * 180 + 20);
+
+console.log(`Teddy is ${teddyAge} years old!`);
