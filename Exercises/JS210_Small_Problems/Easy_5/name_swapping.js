@@ -7,3 +7,10 @@
   swapName('Joe Roberts');    // "Roberts, Joe"
 
 */
+
+function swapName(names) {
+  namesArr = names.split(' ');
+  return namesArr.reverse().join(', ')
+}
+
+console.log(swapName('Joe Roberts'));    // "Roberts, Joe"

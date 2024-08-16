@@ -11,3 +11,19 @@
   centerOf('x');                 // "x"
 
 */
+
+function centerOf(str) {
+  let midPoint = Math.floor(str.length / 2);
+
+  if (str.length % 2 === 0) {
+    return str.slice(midPoint - 1, midPoint + 1);
+  } else {
+    return str.slice(midPoint, midPoint + 1);
+  }
+}
+
+console.log(centerOf('I Love JavaScript')); // "a"
+console.log(centerOf('Launch School'));     // " "
+console.log(centerOf('Launch'));            // "un"
+console.log(centerOf('Launchschool'));      // "hs"
+console.log(centerOf('x'));                 // "x"

@@ -9,3 +9,22 @@
   reverseWords('Launch School');            // "hcnuaL loohcS"
 
 */
+
+function reverseWords(sentence) {
+  let answer = [];
+  let wordsArr = sentence.split(" ");
+  wordsArr.forEach(
+    word => {
+      if (word.length >= 5) {
+        answer.push(word.split("").reverse().join(''));
+      } else {
+        answer.push(word);
+      }
+    }
+  )
+  return answer.join(" ");
+}
+
+console.log(reverseWords('Professional'));             // "lanoisseforP"
+console.log(reverseWords('Walk around the block'));    // "Walk dnuora the kcolb"
+console.log(reverseWords('Launch School'));            // "hcnuaL loohcS"

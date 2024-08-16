@@ -9,3 +9,18 @@
   repeater('');             // ""
 
 */
+
+function repeater(str) {
+  if (!str) return '';
+
+  let answer = '';
+  let length = str.split('').length;
+  for (let i = 0; i < length; i++) {
+    answer += str[i] + str[i];
+  }
+  return answer;
+}
+
+console.log(repeater('Hello'));        // "HHeelllloo"
+console.log(repeater('Good job!'));    // "GGoooodd  jjoobb!!"
+console.log(repeater(''));             // ""
