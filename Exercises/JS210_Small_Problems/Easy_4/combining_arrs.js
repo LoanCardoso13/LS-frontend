@@ -7,3 +7,21 @@
   union([1, 3, 5], [3, 6, 9]);    // [1, 3, 5, 6, 9]
 
 */
+
+function union(arr1, arr2) {
+  let arr = [ ...arr1, ...arr2 ];
+
+  return uniqueElems(arr);
+}
+
+function uniqueElems(arr) {
+  let answer = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!answer.includes(arr[i])) answer.push(arr[i]);
+  }
+
+  return answer;
+}
+
+console.log(union([1, 3, 5], [3, 6, 9]));    // [1, 3, 5, 6, 9]
