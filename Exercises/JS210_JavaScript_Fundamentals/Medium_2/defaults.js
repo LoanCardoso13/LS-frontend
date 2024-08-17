@@ -39,4 +39,9 @@
 
   However, both of these solutions have a limitation that can lead to an incorrect result for certain inputs. What is this limitation and how does it affect the result?
 
+  Solution:
+
+  1) If either quantity, serviceCharge or tax is passed as argument with the value of 0, it will be reassigned to the default value. 
+  2) If the function is to be called without the default value for one of the parameters: quantity, discount, serviceCharge and tax, it needs to be given an argument corresponding to all the previous parameters before itself in the function declaration. For example, if a value different from the default is to be assigned to serviceCharge, then it is necessary to provide a value for quantity and discount also. Only quantity can be given a non-default value without bringing forth the need to others non-default. 
+
 */
