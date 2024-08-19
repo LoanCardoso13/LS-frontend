@@ -26,7 +26,7 @@ function isRealPalindrome(str) {
 }
 
 function filterNonAlphabetic(str) {
-  return str.split('').filter(character => !!character.match(/[a-z]/gi)).join('');
+  return str.split('').filter(character => (/[a-z]/gi).test(character)).join('');
 }
 
 console.log(isRealPalindrome('madam'));               // true
