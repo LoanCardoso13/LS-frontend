@@ -104,7 +104,7 @@ function wordSizes3(sentence) {
       answer[length] = answer[length] || 0;
       answer[length] += 1;
     }
-  )
+  );
   return answer;
 }
 

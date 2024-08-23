@@ -26,13 +26,13 @@ function reverse(inputForReversal) {
   let stringAnswer = '';
 
   if (Array.isArray(inputForReversal)) {
-    for (let i = inputForReversal.length - 1; i >= 0; i--) {
-      arrayAnswer.push(inputForReversal[i]);
+    for (let idx = inputForReversal.length - 1; idx >= 0; idx--) {
+      arrayAnswer.push(inputForReversal[idx]);
     }
     return arrayAnswer;
   } else {
-    for (let i = inputForReversal.length - 1; i >= 0; i--) {
-      stringAnswer += inputForReversal[i];
+    for (let idx = inputForReversal.length - 1; idx >= 0; idx--) {
+      stringAnswer += inputForReversal[idx];
     }
     return stringAnswer;
   }

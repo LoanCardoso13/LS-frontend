@@ -15,12 +15,12 @@ function halvsies(arr) {
   let firstHalf = [];
   let secondHalf = [];
 
-  for (let i = 0; i < half; i++) {
-    firstHalf.push(arr[i]);
+  for (let idx = 0; idx < half; idx++) {
+    firstHalf.push(arr[idx]);
   }
 
-  for (let i = half; i < arr.length; i++) {
-    secondHalf.push(arr[i]);
+  for (let idx = half; idx < arr.length; idx++) {
+    secondHalf.push(arr[idx]);
   }
 
   return [ firstHalf, secondHalf];

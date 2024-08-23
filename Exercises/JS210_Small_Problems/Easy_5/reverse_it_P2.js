@@ -21,7 +21,7 @@ function reverseWords(sentence) {
         answer.push(word);
       }
     }
-  )
+  );
   return answer.join(" ");
 }
 

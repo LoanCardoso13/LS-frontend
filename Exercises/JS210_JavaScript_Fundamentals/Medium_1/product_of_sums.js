@@ -34,8 +34,8 @@ function productOfSums(array1, array2) {
 function total(numbers) {
   let sum = 0;
                                                 
-  for (let i = 0; i < numbers.length; i += 1) {
-    sum += numbers[i];
+  for (let idx = 0; idx < numbers.length; idx += 1) {
+    sum += numbers[idx];
   }
                                                 
   return sum;

@@ -28,12 +28,12 @@ function crunch(str) {
   let lastChar = '';
   let answer = '';
 
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === lastChar) {
+  for (let idx = 0; idx < str.length; idx++) {
+    if (str[idx] === lastChar) {
       continue;
     } else {
-      answer += str[i];
-      lastChar = str[i];
+      answer += str[idx];
+      lastChar = str[idx];
     }
   }
 

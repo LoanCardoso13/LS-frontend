@@ -15,8 +15,8 @@ function runningTotal(arr) {
   let total = 0;
   let answer = [];
 
-  for (let i = 0; i < arr.length; i++) {
-    total += arr[i];
+  for (let idx = 0; idx < arr.length; idx++) {
+    total += arr[idx];
     answer[answer.length] = total;
   }
 

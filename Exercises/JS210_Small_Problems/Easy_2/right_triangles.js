@@ -26,12 +26,12 @@ triangle(9);
 
 */
 
-function triangle(n) {
+function triangle(num) {
   let nOfSpaces;
   let nOfStars;
-  for (let i = 1; i <= n; i++) {
-    nOfSpaces = n - i;
-    nOfStars = i;
+  for (let idx = 1; idx <= num; idx++) {
+    nOfSpaces = num - idx;
+    nOfStars = idx;
     console.log(' '.repeat(nOfSpaces) + '*'.repeat(nOfStars));
   }
 }

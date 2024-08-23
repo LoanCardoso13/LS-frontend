@@ -15,8 +15,8 @@ function repeater(str) {
 
   let answer = '';
   let length = str.split('').length;
-  for (let i = 0; i < length; i++) {
-    answer += str[i] + str[i];
+  for (let idx = 0; idx < length; idx++) {
+    answer += str[idx] + str[idx];
   }
   return answer;
 }

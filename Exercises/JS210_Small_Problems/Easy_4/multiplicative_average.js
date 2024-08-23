@@ -12,7 +12,7 @@
 function showMultiplicativeAverage(arr) {
   let sum = arr.reduce(
     (acc, cv) => acc * cv, 1
-  )
+  );
   return (sum / arr.length).toFixed(3);
 }
 

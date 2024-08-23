@@ -19,14 +19,14 @@ function wordSizes1(sentence) {
 
   if (minLength === maxLength && minLength === 0) return answer;
 
-  for (let i = minLength; i <= maxLength; i++) {
+  for (let idx = minLength; idx <= maxLength; idx++) {
     let count = 0;
     sentence.split(' ').forEach(
       word => {
-        if (word.length === i) count += 1;
+        if (word.length === idx) count += 1;
       }
-    )
-    if (count > 0) answer[i] = count;
+    );
+    if (count > 0) answer[idx] = count;
   }
 
   return answer;

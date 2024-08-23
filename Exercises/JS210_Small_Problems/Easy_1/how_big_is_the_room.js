@@ -20,6 +20,6 @@ let readlineSync = require('readline-sync');
 let lengthMeters = Number(readlineSync.question('Enter the length of the room in meters: '));
 let widthMeters = Number(readlineSync.question('Enter the width of the room in meters: '));
 
-areaMeters = lengthMeters * widthMeters;
-areaFeet = areaMeters * 10.7639;
+let areaMeters = lengthMeters * widthMeters;
+let areaFeet = areaMeters * 10.7639;
 console.log(`The area of the room is ${areaMeters.toFixed(2)} square meters (${areaFeet.toFixed(2)} square feet)`);

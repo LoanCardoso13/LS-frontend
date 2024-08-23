@@ -10,11 +10,11 @@
 
 */
 
-function negative(n) {
-  if (n >= 0) {
-    return n * (-1);
+function negative(num) {
+  if (num >= 0) {
+    return num * (-1);
   } else {
-    return n;
+    return num;
   }
 }
 

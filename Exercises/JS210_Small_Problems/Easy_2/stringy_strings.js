@@ -11,10 +11,10 @@ stringy(7);    // "1010101"
 
 */
 
-function stringy(n) {
+function stringy(num) {
   let answer = '';
-  for (let i = 0; i < n; i++) {
-    if (i % 2 == 0) {
+  for (let idx = 0; idx < num; idx++) {
+    if (idx % 2 === 0) {
       answer += '1';
     } else {
       answer += '0';

@@ -15,8 +15,8 @@
 
 function sequence(count, start) {
   let answer = [];
-  for (let i = 1; i <= count; i++) {
-    answer.push(start * i);
+  for (let idx = 1; idx <= count; idx++) {
+    answer.push(start * idx);
   }
   return answer;
 }

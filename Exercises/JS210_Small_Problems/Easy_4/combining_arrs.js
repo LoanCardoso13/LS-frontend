@@ -17,8 +17,8 @@ function union(arr1, arr2) {
 function uniqueElems(arr) {
   let answer = [];
 
-  for (let i = 0; i < arr.length; i++) {
-    if (!answer.includes(arr[i])) answer.push(arr[i]);
+  for (let idx = 0; idx < arr.length; idx++) {
+    if (!answer.includes(arr[idx])) answer.push(arr[idx]);
   }
 
   return answer;

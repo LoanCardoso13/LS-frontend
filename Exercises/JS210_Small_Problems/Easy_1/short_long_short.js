@@ -11,8 +11,8 @@ shortLongShort('', 'xyz');         // "xyz"
 */
 
 function shortLongShort(str1, str2) {
-  shorter = str1.length < str2.length ? str1 : str2;
-  longer = str1.length > str2.length ? str1 : str2;
+  let shorter = str1.length < str2.length ? str1 : str2;
+  let longer = str1.length > str2.length ? str1 : str2;
 
   return shorter + longer + shorter;
 }

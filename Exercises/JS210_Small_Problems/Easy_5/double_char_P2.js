@@ -16,11 +16,11 @@ function doubleConsonants(str) {
 
   let answer = '';
   let length = str.split('').length;
-  for (let i = 0; i < length; i++) {
-    if (isValid(str[i])) {
-      answer += str[i] + str[i];
+  for (let idx = 0; idx < length; idx++) {
+    if (isValid(str[idx])) {
+      answer += str[idx] + str[idx];
     } else {
-      answer += str[i];
+      answer += str[idx];
     }
   }
 
@@ -28,8 +28,8 @@ function doubleConsonants(str) {
 }
 
 function isValid(character) {
-  if (!!character.match(/[aeiou]/i)) return false;
-  return !!character.match(/[a-z]/i);
+  if ((/[aeiou]/i).test(character)) return false;
+  return (/[a-z]/i).test(character);
 }
 
 console.log(doubleConsonants('String'));          // "SSttrrinngg"

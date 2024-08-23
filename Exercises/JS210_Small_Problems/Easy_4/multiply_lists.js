@@ -10,8 +10,8 @@
 
 function multiplyList(arr1, arr2) {
   let answer = [];
-  for (let i = 0; i < arr1.length; i++) {
-    answer.push(arr1[i] * arr2[i])
+  for (let idx = 0; idx < arr1.length; idx++) {
+    answer.push(arr1[idx] * arr2[idx]);
   }
   return answer;
 }

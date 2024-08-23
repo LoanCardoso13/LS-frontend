@@ -68,8 +68,8 @@ function slice(array, begin, end) {
   begin = begin >= array.length ? array.length - 1 : begin;
 
   let answer = [];
-  for (let i = begin; i < end; i++) {
-    answer.push(array[i]);
+  for (let idx = begin; idx < end; idx++) {
+    answer.push(array[idx]);
   }
   return answer;
 }
@@ -97,25 +97,24 @@ function splice(array, start, deleteCount, ...args) {
     ele => {
       insertAt(array, start, ele);
     }
-  )
+  );
   return answer;
 }
 
-function deleteAt(arr, idx) {
-  let answer = arr[idx];
-  for (let i = idx; i < arr.length - 1; i++) {
-    arr[i] = arr[i + 1];
+function deleteAt(arr, position) {
+  let answer = arr[position];
+  for (let idx = position; idx < arr.length - 1; idx++) {
+    arr[idx] = arr[idx + 1];
   }
-  arr.length = arr.length - 1;
+  arr.length -= 1;
   return answer;
 }
 
-function insertAt(arr, idx, ele) {
-  for (let i = arr.length; i > idx; i--) {
-    arr[i] = arr[i - 1];
+function insertAt(arr, position, ele) {
+  for (let idx = arr.length; idx > position; idx--) {
+    arr[idx] = arr[idx - 1];
   }
-  arr[idx] = ele;
-  return;
+  arr[position] = ele;
 }
 
 console.log(splice([1, 2, 3], 1, 2));              // [2, 3]

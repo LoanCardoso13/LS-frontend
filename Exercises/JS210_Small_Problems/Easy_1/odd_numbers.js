@@ -4,6 +4,6 @@
 
 */
 
-for (let i = 1; i <= 99; i += 2) {
-  console.log(i);
+for (let idx = 1; idx <= 99; idx += 2) {
+  console.log(idx);
 }

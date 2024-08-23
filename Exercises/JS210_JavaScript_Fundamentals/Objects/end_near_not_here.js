@@ -19,7 +19,7 @@
 
 function penultimate(string) {
   // return string.split(' ')[-2];
-  let arr = string.split(' ')
+  let arr = string.split(' ');
   return arr[arr.length - 2];
 }
                                                                  

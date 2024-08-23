@@ -26,8 +26,8 @@ function shift(arr) {
   if (arr.length === 0) return undefined;
 
   let answer = arr[0];
-  for (let i = 1; i < arr.length; i++) {
-    arr[i- 1] = arr[i];
+  for (let idx = 1; idx < arr.length; idx++) {
+    arr[idx - 1] = arr[idx];
   }
   arr.pop();
   return answer;
@@ -38,16 +38,15 @@ function unshift(arr, ...addedElments) {
     addedElement => {
       oneElementUnshift(arr, addedElement);
     }
-  )
+  );
   return arr.length;
 }
 
 function oneElementUnshift(arr, ele) {
-  for (let i = arr.length - 1; i >= 0; i--) {
-    arr[i + 1] = arr[i];
+  for (let idx = arr.length - 1; idx >= 0; idx--) {
+    arr[idx + 1] = arr[idx];
   }
   arr[0] = ele;
-  return;
 }
 
 console.log(shift([1, 2, 3]));                // 1

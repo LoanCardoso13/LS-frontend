@@ -13,20 +13,19 @@
 */
 
 function swap(sentence) {
-  
+
 
   let answer = [];
 
   sentence.split(' ').forEach(
     word => {
       if (word.length > 1) {
-        answer.push(word[word.length - 1] + word.slice(1, -1) + word[0])
-      }
-      else {
+        answer.push(word[word.length - 1] + word.slice(1, -1) + word[0]);
+      } else {
         answer.push(word);
       }
     }
-  )
+  );
 
   return answer.join(' ');
 }

@@ -36,6 +36,6 @@
 */
 
 let rlSync = require('readline-sync');
-let sentence = rlSync.question("Please enter a phrase: ")
+let sentence = rlSync.question("Please enter a phrase: ");
 
-console.log(`There are ${sentence.length} characters in "${sentence}".`)
+console.log(`There are ${sentence.length} characters in "${sentence}".`);

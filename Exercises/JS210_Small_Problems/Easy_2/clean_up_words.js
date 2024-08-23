@@ -10,7 +10,7 @@ Algorithm:
 
 Initialize answer to empty string
 Iterate through indexes of input string
-  If current character is non-alphabetic 
+  If current character is non-alphabetic
     If last character from answer is not space
       Add space to answer
   If current character is alphabetic
@@ -41,6 +41,11 @@ Check char if alphabetic
 //   let code = char.charCodeAt(0);
 //   return (code >= 97 && code <= 122) || (code >= 65 && code <= 90);
 // }
+const lastChar = (text) => text[text.length - 1];
+
+const isLowerCaseLetter = (char) => char >= 'a' && char <= 'z';
+
+const isUpperCaseLetter = (char) => char >= 'A' && char <= 'Z';
 
 function cleanUp(text) {
   let cleanText = '';
@@ -55,11 +60,5 @@ function cleanUp(text) {
 
   return cleanText;
 }
-
-const lastChar = (text) => text[text.length - 1];
-
-const isLowerCaseLetter = (char) => char >= 'a' && char <= 'z';
-
-const isUpperCaseLetter = (char) => char >= 'A' && char <= 'Z';
 
 console.log(cleanUp("---what's my +*& line?"));    // " what s my line "

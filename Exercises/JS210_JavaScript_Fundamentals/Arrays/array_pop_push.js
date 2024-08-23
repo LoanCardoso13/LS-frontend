@@ -25,7 +25,7 @@ function pop(arr) {
   if (arr.length === 0) return undefined;
 
   let lastElement = arr[arr.length - 1];
-  arr.length = arr.length - 1;
+  arr.length -= 1;
   return lastElement;
 }
 
@@ -34,7 +34,7 @@ function push(arr, ...addedElements) {
     ele => {
       arr[arr.length] = ele;
     }
-  )
+  );
   return arr.length;
 }
 

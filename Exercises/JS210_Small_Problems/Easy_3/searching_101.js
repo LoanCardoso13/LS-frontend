@@ -36,7 +36,7 @@ let number6 = Number(readlineSync.question('Enter the last number: '));
 let arr = [number1, number2, number3, number4, number5];
 
 if (arr.includes(number6)) {
-  console.log(`The number ${number6} appears in ${arr}.`)
+  console.log(`The number ${number6} appears in ${arr}.`);
 } else {
-  console.log(`The number ${number6} does not appear in ${arr}.`)
+  console.log(`The number ${number6} does not appear in ${arr}.`);
 }

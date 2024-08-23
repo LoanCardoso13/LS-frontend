@@ -1,20 +1,17 @@
 {
-  "name": "javascript_basics",
+  "name": "objects",
   "version": "1.0.0",
-  "main": "arithmetic_integer.js",
+  "description": "",
+  "main": "after_midnight_P1.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "readline-sync": "^1.4.10"
-  },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.12.1",
     "eslint-cli": "^1.1.1"
-  },
-  "description": ""
+  }
 }

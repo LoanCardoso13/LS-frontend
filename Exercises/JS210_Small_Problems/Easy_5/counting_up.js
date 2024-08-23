@@ -12,10 +12,10 @@
 
 */
 
-function sequence(n) {
+function sequence(num) {
   let answer = [];
-  for (let i = 1; i <= n; i++) {
-    answer.push(i);
+  for (let idx = 1; idx <= num; idx++) {
+    answer.push(idx);
   }
   return answer;
 }

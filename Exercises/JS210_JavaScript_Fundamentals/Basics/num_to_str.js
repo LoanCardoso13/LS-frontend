@@ -34,12 +34,12 @@
 
 const ASCII_TO_INTEGER_DIFF = 48;
 
-function integerToString(n) {
+function integerToString(num) {
   let answer = [];
   do {
-    answer.push(String.fromCharCode((n % 10) + ASCII_TO_INTEGER_DIFF));
-    n = Math.floor(n / 10);
-  } while (n !== 0)
+    answer.push(String.fromCharCode((num % 10) + ASCII_TO_INTEGER_DIFF));
+    num = Math.floor(num / 10);
+  } while (num !== 0);
   answer.reverse();
   return answer.join('');
 }

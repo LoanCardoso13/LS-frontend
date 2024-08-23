@@ -21,7 +21,7 @@ function isPalindrome(str) {
 }
 
 function isRealPalindrome(str) {
-  filteredStr = filterNonAlphabetic(str);
+  let filteredStr = filterNonAlphabetic(str);
   return isPalindrome(filteredStr);
 }
 

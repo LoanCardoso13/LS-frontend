@@ -11,8 +11,8 @@
 
 */
 
-function isPalindromicNumber(n) {
-  let str = String(n);
+function isPalindromicNumber(num) {
+  let str = String(num);
   return isPalindrome(str);
 }
 

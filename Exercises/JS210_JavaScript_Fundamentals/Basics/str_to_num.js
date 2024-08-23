@@ -24,7 +24,7 @@
 
   Algorithm:
 
-    1) Split the string into each character/digit in an array. 
+    1) Split the string into each character/digit in an array.
     2) Map the array into its ASCII values.
     2.1) Find the difference between ASCII digits from 0 to 9 and their literal meaning.
     3) Correct each element of the mapped/returned array into its literal corresponding digit.
@@ -38,17 +38,18 @@
 const ASCII_TO_INTEGER_DIFF = 48;
 
 function stringToInteger(characters) {
-  let numbers_arr = [];
-  for (let i = 0; i < characters.length; i++) {
-    numbers_arr.push(characters.charCodeAt(i));
+  let numbersArr = [];
+  for (let idx = 0; idx < characters.length; idx++) {
+    numbersArr.push(characters.charCodeAt(idx));
   }
-  numbers_arr = numbers_arr.map( ele => ele - ASCII_TO_INTEGER_DIFF );
-  numbers_arr.reverse();
-  answer = 0;
-  for (let i = 0; i < characters.length; i++) {
-    answer += numbers_arr[i] * (10 ** i);
+  numbersArr = numbersArr.map( ele => ele - ASCII_TO_INTEGER_DIFF );
+  numbersArr.reverse();
+
+  let answer = 0;
+  for (let idx = 0; idx < characters.length; idx++) {
+    answer += numbersArr[idx] * (10 ** idx);
   }
-  return answer
+  return answer;
 }
 
 console.log(stringToInteger('4321'));      // 4321

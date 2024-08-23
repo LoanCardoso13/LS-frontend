@@ -20,8 +20,8 @@ utf16Value(OMEGA + OMEGA + OMEGA);  // 2811
 
 function utf16Value(str) {
   let total = 0;
-  for (let i = 0; i < str.length; i++) {
-    total += str.charCodeAt(i);
+  for (let idx = 0; idx < str.length; idx++) {
+    total += str.charCodeAt(idx);
   }
   return total;
 }

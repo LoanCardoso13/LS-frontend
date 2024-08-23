@@ -17,10 +17,10 @@
 
 */
 
-let i = 0;
-while (i < 10) {
-  if (i % 3 === 0) {
-    console.log(i);
+let idx = 0;
+while (idx < 10) {
+  if (idx % 3 === 0) {
+    console.log(idx);
   }
-    i += 1;
+  idx += 1;
 }

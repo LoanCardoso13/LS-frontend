@@ -12,8 +12,8 @@
 
 */
 
-function reverseNumber(n) {
-  return Number(String(n).split('').reverse().join(''));
+function reverseNumber(num) {
+  return Number(String(num).split('').reverse().join(''));
 }
 
 console.log(reverseNumber(12345));    // 54321

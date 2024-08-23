@@ -16,8 +16,8 @@ multisum(1000);    // 234168
 function multisum(seqLimit) {
   let seqArr = [];
 
-  for (let i = 1; i <= seqLimit; i++) {
-    if (i % 3 === 0 || i % 5 === 0) seqArr.push(i);
+  for (let idx = 1; idx <= seqLimit; idx++) {
+    if (idx % 3 === 0 || idx % 5 === 0) seqArr.push(idx);
   }
   return seqArr.reduce((acc, cv) => acc + cv, 0);
 }

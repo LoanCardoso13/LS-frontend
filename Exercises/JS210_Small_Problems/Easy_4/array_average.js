@@ -12,7 +12,7 @@
 function average(arr) {
   let sum = arr.reduce(
     (acc, cv) => acc + cv, 0
-  )
+  );
   return Math.floor(sum / arr.length);
 }
 

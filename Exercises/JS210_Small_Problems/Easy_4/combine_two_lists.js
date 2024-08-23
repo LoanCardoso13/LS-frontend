@@ -14,8 +14,8 @@ function interleave(arr1, arr2) {
   let answer = [];
   let fullLength = arr1.length + arr2.length;
 
-  for (let i = 0; i < fullLength; i++) {
-    if (i % 2 === 0) {
+  for (let idx = 0; idx < fullLength; idx++) {
+    if (idx % 2 === 0) {
       answer.push(arr1.shift());
     } else {
       answer.push(arr2.shift());

@@ -36,7 +36,7 @@ function dms(degreesInFloat) {
 
 function decimalsToDegrees(number) {
   let minutes = Math.floor(number * 60);
-  let seconds = Math.floor(( number * 60 - minutes ) * 60);
+  let seconds = Math.floor(( (number * 60) - minutes ) * 60);
   return { minutes, seconds, };
 }
 

@@ -14,8 +14,8 @@
 function digitList(number) {
   let answer = [];
   let stringAnswer = String(number).split('');
-  for (let i = 0; i < stringAnswer.length; i++) {
-    answer.push(Number(stringAnswer[i]));
+  for (let idx = 0; idx < stringAnswer.length; idx++) {
+    answer.push(Number(stringAnswer[idx]));
   }
   return answer;
 }

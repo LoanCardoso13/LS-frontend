@@ -17,16 +17,16 @@ twice(7676);        // 7676
 
 */
 
-function twice(n) {
-  if (doubleNumber(n)) {
-    return n;
+function twice(num) {
+  if (doubleNumber(num)) {
+    return num;
   } else {
-    return n * 2;
+    return num * 2;
   }
 }
 
-function doubleNumber(n) {
-  let stringfied = String(n);
+function doubleNumber(num) {
+  let stringfied = String(num);
   return (stringfied.length % 2 === 0) &&
   (stringfied.slice(0, stringfied.length / 2) === stringfied.slice(stringfied.length / 2));
 }

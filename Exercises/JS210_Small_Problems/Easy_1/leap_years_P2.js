@@ -6,7 +6,7 @@ The British Empire adopted the Gregorian Calendar in 1752, which was a leap year
 
 Using this information, update the function from the previous exercise to determine leap years both before and after 1752.
 
-Examples:  
+Examples:
 
 isLeapYear(2016);      // true
 isLeapYear(2015);      // false

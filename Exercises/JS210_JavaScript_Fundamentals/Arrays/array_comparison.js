@@ -44,11 +44,11 @@
 // }
 
 function areArraysEqual(arr1, arr2) {
-  for (let i = 0; i < arr1.length; i++) {
-    if (!arr1.includes(arr2[i])) return false;
+  for (let idx = 0; idx < arr1.length; idx++) {
+    if (!arr1.includes(arr2[idx])) return false;
   }
 
-  dummyArray = arr2.slice().sort();
+  let dummyArray = arr2.slice().sort();
   return String(arr1) === String(dummyArray);
 }
 

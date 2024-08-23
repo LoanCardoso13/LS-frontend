@@ -16,7 +16,7 @@ function concat(arr, ...rest) {
     ele => {
       twoElementsConcat(arr, ele);
     }
-  )
+  );
   return answer;
 }
 
@@ -24,8 +24,8 @@ function twoElementsConcat(array1, secondArgument) {
   let arr = array1;
 
   if (Array.isArray(secondArgument)) {
-    for (let i = 0; i < secondArgument.length; i++) {
-      arr.push(secondArgument[i]);
+    for (let idx = 0; idx < secondArgument.length; idx++) {
+      arr.push(secondArgument[idx]);
     }
   } else {
     arr.push(secondArgument);

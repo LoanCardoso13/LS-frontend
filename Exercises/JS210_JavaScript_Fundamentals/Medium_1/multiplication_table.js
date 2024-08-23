@@ -35,10 +35,10 @@ function padLeft(number) {
   }
 }
 
-for (let i = 1; i <= 10; i += 1) {
+for (let idx = 1; idx <= 10; idx += 1) {
   let row = '';
   for (let j = 1; j <= 10; j += 1) {
-    row += `${padLeft(i * j)} `;
+    row += `${padLeft(idx * j)} `;
   }
 
   console.log(row);

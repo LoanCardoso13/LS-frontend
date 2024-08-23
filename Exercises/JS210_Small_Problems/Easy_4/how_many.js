@@ -20,7 +20,7 @@
 "use strict";
 
 const vehicles = ['car', 'car', 'truck', 'car', 'SUV', 'truck',
-                  'motorcycle', 'suv', 'motorcycle', 'car', 'truck'];
+  'motorcycle', 'suv', 'motorcycle', 'car', 'truck'];
 
 function countOccurrences(arr) {
   let uniqueElems = getUnique(arr);
@@ -28,18 +28,18 @@ function countOccurrences(arr) {
   uniqueElems.forEach(
     word => {
       let count = 0;
-      for (let i = 0; i < arr.length; i++) {
-        if (word === arr[i]) count += 1;
+      for (let idx = 0; idx < arr.length; idx++) {
+        if (word === arr[idx]) count += 1;
       }
       console.log(`${word} => ${count}`);
     }
-  )
+  );
 }
 
 function getUnique(arr) {
   let answer = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (!answer.includes(arr[i])) answer.push(arr[i]);
+  for (let idx = 0; idx < arr.length; idx++) {
+    if (!answer.includes(arr[idx])) answer.push(arr[idx]);
   }
   return answer;
 }

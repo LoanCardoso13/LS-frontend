@@ -29,17 +29,17 @@ const ASCII_TO_INTEGER_DIFF = 48;
 function stringToSignedInteger(characters) {
   let negative;
   [characters, negative] = unsignInteger(characters);
-  let numbers_arr = [];
+  let numbersArr = [];
 
-  for (let i = 0; i < characters.length; i++) {
-    numbers_arr.push(characters.charCodeAt(i));
+  for (let idx = 0; idx < characters.length; idx++) {
+    numbersArr.push(characters.charCodeAt(idx));
   }
-  numbers_arr = numbers_arr.map( ele => ele - ASCII_TO_INTEGER_DIFF );
-  numbers_arr.reverse();
+  numbersArr = numbersArr.map( ele => ele - ASCII_TO_INTEGER_DIFF );
+  numbersArr.reverse();
 
   let answer = 0;
-  for (let i = 0; i < characters.length; i++) {
-    answer += numbers_arr[i] * (10 ** i);
+  for (let idx = 0; idx < characters.length; idx++) {
+    answer += numbersArr[idx] * (10 ** idx);
   }
 
   if (negative) answer *= (-1);
