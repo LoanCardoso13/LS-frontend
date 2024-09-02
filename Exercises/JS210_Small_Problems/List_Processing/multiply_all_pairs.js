@@ -18,5 +18,28 @@
 
   Algorithm:
 
+    Initialize empty combinedMutiplied array
+    Iterate through elements of arr1
+      Iterate through elements of arr2
+        multiply elements from both arrays and push into combinedMutiplied
+    Sort combinedMutiplied based on their number version
+
 */
 
+let multiplyAllPairs = (arr1, arr2) => {
+  let combinedMutiplied = [];
+
+  arr1.forEach(ele1 => {
+    arr2.forEach(ele2 => combinedMutiplied.push(ele1 * ele2));
+  });
+
+  return combinedMutiplied.sort((num1, num2) => {
+    if (num1 > num2) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+}
+
+console.log(multiplyAllPairs([2, 4], [4, 3, 1, 2]));    // [2, 4, 4, 6, 8, 8, 12, 16]

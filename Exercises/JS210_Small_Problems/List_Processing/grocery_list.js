@@ -19,5 +19,23 @@
 
   Algorithm:
 
+    Initialize empty answer array
+    Iterate over each element of input array, call elements subAarr
+      Repeat the following subAarr[1] times:
+        push subAarr[0] into answer
+    Return answer
+
 */
 
+let buyFruit = arr => {
+  let answer = [];
+  arr.forEach(subArr => {
+    for (let i = 0; i < subArr[1]; i++) {
+      answer.push(subArr[0]);
+    }
+  });
+  return answer;
+}
+
+console.log(buyFruit([['apple', 3], ['orange', 1], ['banana', 2]]));
+// returns ["apple", "apple", "apple", "orange", "banana", "banana"]

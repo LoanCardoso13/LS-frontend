@@ -18,5 +18,17 @@
 
   Algorithm:
 
+    Transform number to string
+    split string into characters
+    map back into numbers
+    reduce to its sum
+
 */
 
+let sum = num => {
+  return String(num).split('').map(chr => Number(chr)).reduce((sum, item) => sum + item);
+}
+
+console.log(sum(23));           // 5
+console.log(sum(496));          // 19
+console.log(sum(123456789));    // 45

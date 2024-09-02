@@ -33,3 +33,37 @@
 
 */
 
+
+let substrings = str => {
+  let answer = [];
+  for (let i = 0; i < str.length; i++) {
+    answer.push(leadingSubstrings(str.slice(i)));
+  }
+  return answer.flat();
+}
+
+let leadingSubstrings = str => {
+  let answer = [];
+  for (let i = 1; i <= str.length; i++) {
+    answer.push(str.slice(0, i));
+  }
+  return answer;
+}
+
+let palindromes = str => {
+  let allSubStrs = substrings(str);
+  return allSubStrs.filter(word => (word === word.split('').reverse().join('')) && word.length > 1);
+}
+
+console.log(palindromes('abcd'));       // []
+console.log(palindromes('madam'));      // [ "madam", "ada" ]
+                                                                           
+console.log(palindromes('hello-madam-did-madam-goodbye'));
+// returns
+// [ "ll", "-madam-", "-madam-did-madam-", "madam", "madam-did-madam", "ada",
+//   "adam-did-mada", "dam-did-mad", "am-did-ma", "m-did-m", "-did-", "did",
+//   "-madam-", "madam", "ada", "oo" ]
+                                                                           
+console.log(palindromes('knitting cassettes'));
+// returns
+// [ "nittin", "itti", "tt", "ss", "settes", "ette", "tt" ]

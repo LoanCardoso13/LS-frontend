@@ -25,4 +25,32 @@
 
   Algorithm:
 
+    Initialize answer to empty array
+    Iterate over i from 0 to input str length - 1
+      push into answer return of leadingSubstrings called with slice input str from i until its end as argument 
+    Return answer
+
 */
+
+let substrings = str => {
+  let answer = [];
+  for (let i = 0; i < str.length; i++) {
+    answer.push(leadingSubstrings(str.slice(i)));
+  }
+  return answer.flat();
+}
+
+let leadingSubstrings = str => {
+  let answer = [];
+  for (let i = 1; i <= str.length; i++) {
+    answer.push(str.slice(0, i));
+  }
+  return answer;
+}
+
+console.log(substrings('abcde'));
+// [ "a", "ab", "abc", "abcd", "abcde",
+//   "b", "bc", "bcd", "bcde",
+//   "c", "cd", "cde",
+//   "d", "de",
+//   "e" ]
