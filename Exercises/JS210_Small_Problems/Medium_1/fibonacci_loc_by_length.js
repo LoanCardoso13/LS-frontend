@@ -30,4 +30,36 @@ To use BigInt integers in your solution, simply append the letter n to any numbe
 
   // The last example may take a minute or so to run.
 
+  Algorithm:
+
+    Initialize current value to 2 and previous1 and 2 variables to 1 and idx to 3
+    While current value stringfied has length less than decimalLimit do
+      reassign previous1 to previous2
+      reassign current value to previous1
+      calculate current value as previous1 plus previous2
+      increase index
+    Return index
+
 */
+
+let findFibonacciIndexByLength = decimalLimit => {
+  let previous2 = 1n;
+  let previous1 = 1n;
+  let currentValue = 2n;
+  let idx = 3n;
+  while (String(currentValue).length < decimalLimit) {
+    previous2 = previous1;
+    previous1 = currentValue;
+    currentValue = previous1 + previous2;
+    idx += 1n;
+  }
+  return idx
+}
+
+console.log(findFibonacciIndexByLength(2n) === 7n);    // true
+console.log(findFibonacciIndexByLength(3n) === 12n);   // true
+console.log(findFibonacciIndexByLength(10n) === 45n);
+console.log(findFibonacciIndexByLength(16n) === 74n);
+console.log(findFibonacciIndexByLength(100n) === 476n);
+console.log(findFibonacciIndexByLength(1000n) === 4782n);
+console.log(findFibonacciIndexByLength(10000n) === 47847n);
