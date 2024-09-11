@@ -20,3 +20,24 @@
   triangle(50, 50, 50);       // "invalid"
 
 */
+
+
+function triangle(...arr) {
+  arr.sort((a,b) => a - b);
+  if (!arr.every(ele => ele > 0)) return "invalid"
+  if (arr.reduce((sum, ele) => sum + ele) !== 180) {
+    return "invalid";
+  } else if (arr[arr.length - 1] === 90) {
+    return "right";
+  } else if (arr[arr.length - 1] > 90) {
+    return "obtuse";
+  } else {
+    return "acute";
+  }
+}
+
+console.log(triangle(60, 70, 50));       // "acute"
+console.log(triangle(30, 90, 60));       // "right"
+console.log(triangle(120, 50, 10));      // "obtuse"
+console.log(triangle(0, 90, 90));        // "invalid"
+console.log(triangle(50, 50, 50));       // "invalid"

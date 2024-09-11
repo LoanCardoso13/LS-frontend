@@ -48,4 +48,38 @@
   bubbleSort(array3);
   console.log(array3);    // ["Alice", "Bonnie", "Kim", "Pete", "Rachel", "Sue", "Tyler"]
 
+  Algorithm:
+
+  while count !== 0 
+    Initialize count to 0
+    Iterate through indexes from 0 to array length - 1 (not inclusive) (i)
+      If array at index i is greater than array at index i + 1
+        [arr[i], arr[i+1]] = [arr[i+1], arr[i]];
+        count++
+
 */
+
+let bubbleSort = arr => {
+  let count
+  while (count !== 0) {
+    count = 0;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+        count += 1;
+      }
+    }
+  }
+}
+
+const array1 = [5, 3];
+bubbleSort(array1);
+console.log(array1);    // [3, 5]
+                                                                                        
+const array2 = [6, 2, 7, 1, 4];
+bubbleSort(array2);
+console.log(array2);    // [1, 2, 4, 6, 7]
+                                                                                        
+const array3 = ['Sue', 'Pete', 'Alice', 'Tyler', 'Rachel', 'Kim', 'Bonnie'];
+bubbleSort(array3);
+console.log(array3);    // ["Alice", "Bonnie", "Kim", "Pete", "Rachel", "Sue", "Tyler"]
