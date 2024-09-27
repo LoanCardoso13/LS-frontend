@@ -43,4 +43,38 @@ To access an element in the matrix, you can use bracket notation twice (such as 
   console.log(newMatrix);      // [[1, 4, 3], [5, 7, 9], [8, 2, 6]]
   console.log(matrix);         // [[1, 5, 8], [4, 7, 2], [3, 9, 6]]
 
+  Problem:
+
+  Given a 3x3 matrix, represented by nested arrays, returned the transpose of it as a new nested array. To transpose a matrix means to swap its rows and columns. So, element at (0,0) stays at (0,0) whereas elements at (0,1), (0,2) are swapped with the ones at (1,0) and (2,0) etc. Generally, all elements swap their coordinates and thence the diagonal elements don't change.
+
+  Algorithm:
+
+  Initialize empty answer array
+  Push as many empty arrays in answer as the length of input array
+  Iterate through indexes of input array length (i)
+    Iterate through indexes of input array at [0] length (j)
+      Assing answer at [i][j] to input array at [j][i]
+  Return answer
+
 */
+
+let transpose = function(matrix) {
+  let answer = matrix.map(ele => []);
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[0].length; j++) {
+      answer[i][j] = matrix[j][i];
+    }
+  }
+  return answer;
+}
+
+const matrix = [
+  [1, 5, 8],
+  [4, 7, 2],
+  [3, 9, 6]
+];
+
+const newMatrix = transpose(matrix);
+
+console.log(newMatrix);      // [[1, 4, 3], [5, 7, 9], [8, 2, 6]]
+console.log(matrix);         // [[1, 5, 8], [4, 7, 2], [3, 9, 6]]

@@ -39,4 +39,59 @@
   binarySearch(['Alice', 'Bonnie', 'Kim', 'Pete', 'Rachel', 'Sue', 'Tyler'], 'Peter');  // -1
   binarySearch(['Alice', 'Bonnie', 'Kim', 'Pete', 'Rachel', 'Sue', 'Tyler'], 'Tyler');  // 6
 
+  Problem:
+
+    Use binary search to find index of a searched item in a sorted list. If item not found, return -1.
+
+  Example and test cases:
+
+    Provided.
+
+  Data structure:
+
+    Conditional, recursion (?).
+
+  Algorithm (FAIL):
+
+    Calculate midPoint as list length / 2 rounded - 1
+    Compare mid item (by using index calculated above) from list with searchedItem.
+    If list is empty:
+      Return -1
+    Else If they're the same:
+      Return midPoint
+    Else If mid item is less than searchedItem:
+      Calculate list as current sliced from midPoint + 1 (inclusive) to end
+      Call itself again with arguments new list and searchedItem and assign return value to idxFound
+      Return midPoint + idxFound
+    Else If mid item is greater than searchedItem:
+      Calculate list as current sliced from 0 to midPoint (not inclusive)
+      Call itself again with arguments new list and searchedItem and assign return value to idxFound
+      Return midPoint - idxFound
+
 */
+
+function binarySearch(list, searchedItem) {
+  let midPoint = Math.floor(list.length / 2);
+  if (list.length === 0) {
+    return -1;
+  } else if (list[midPoint] === searchedItem) {
+    return midPoint;
+  } else if (list[midPoint] < searchedItem) {
+    list = list.slice(midPoint + 1);
+    let idxFound = binarySearch(list, searchedItem);
+    return idxFound === -1 ? -1 : midPoint + idxFound + 1;
+  } else if (list[midPoint] > searchedItem) {
+    list = list.slice(0, midPoint);
+    let idxFound = binarySearch(list, searchedItem);
+    return idxFound === -1 ? -1 : idxFound;
+  }
+}
+
+const yellowPages = ['Apple Store', 'Bags Galore', 'Bike Store', 'Donuts R Us', 'Eat a Lot', 'Good Food', 'Pasta Place', 'Pizzeria', 'Tiki Lounge', 'Zooper'];
+console.log(binarySearch(yellowPages, 'Pizzeria'));                   // 7
+console.log(binarySearch(yellowPages, 'Apple Store'));                // 0
+console.log(binarySearch([1, 5, 7, 11, 23, 45, 65, 89, 102], 77));    // -1
+console.log(binarySearch([1, 5, 7, 11, 23, 45, 65, 89, 102], 89));    // 7
+console.log(binarySearch([1, 5, 7, 11, 23, 45, 65, 89, 102], 5));     // 1
+console.log(binarySearch(['Alice', 'Bonnie', 'Kim', 'Pete', 'Rachel', 'Sue', 'Tyler'], 'Peter'));  // -1
+console.log(binarySearch(['Alice', 'Bonnie', 'Kim', 'Pete', 'Rachel', 'Sue', 'Tyler'], 'Tyler'));  // 6

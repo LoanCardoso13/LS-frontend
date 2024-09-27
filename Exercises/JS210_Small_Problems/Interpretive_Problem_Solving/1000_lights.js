@@ -20,4 +20,64 @@
 
   lightsOn(100);      // [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 
+Problem: 
+
+  Given an integer n, take it as both the number of lights in a row, and the number of repetitions (rounds) of cycles of toggling some lights. The lights to toggle correspond to multiples of the current round of toggling. 
+
+  input: integer
+  output: array of integers corresponding to postion of lights that were left on after all the cycles have been completed.
+
+  rules: light positions are 1-index based. 
+
+Examples and test cases:
+
+  lightsOn(0); // []
+  lightsOn(1); // [1]
+  lightsOn(2); // round 1: [1 2] -> round 2: [1]
+  lightsOn(3); // round 1: [1 2 3] -> round 2: [1 3] -> round 3: [1]
+
+Data structure:
+
+  Array of booleans representing the lights. Nested iteration; i.e. through rounds and through lights. Iteration through array.
+
+Algorithm:
+
+  Initialize answer empty array
+  Initialize array containing n boolean false values. (boolArr)
+  Iterate from 1 to n (inclusive) (round)
+    Initialize lightNumber to round
+    While lightNumber <= n do
+      Toggle boolArr at lightNumber - 1
+      Reassign lightNumber to itself plus round
+  Iterate through elements of boolArr with index
+    If element is true, push index + 1 to answer array
+  Return answer array
+
 */
+
+let lightsOn = function(n) {
+  if (n === 0) return [];
+
+  let answer = [];
+  let boolArr = [];
+  for (let i = 1; i <= n; i++) {
+    boolArr.push(false);
+  }
+  for (let round = 1; round <= n; round++) {
+    for (let lightNumber = round; lightNumber <= n; lightNumber += round) {
+      boolArr[lightNumber - 1] = !boolArr[lightNumber - 1];
+    }
+  }
+  for (let i = 0; i < boolArr.length; i++) {
+    if (boolArr[i]) answer.push(i + 1);
+  }
+  return answer;
+}
+
+
+console.log(lightsOn(5));        // [1, 4]
+console.log(lightsOn(100));      // [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+console.log(lightsOn(0)); // []
+console.log(lightsOn(1)); // [1]
+console.log(lightsOn(2)); // round 1: [1 2] -> round 2: [1]
+console.log(lightsOn(3)); // round 1: [1 2 3] -> round 2: [1 3] -> round 3: [1]
