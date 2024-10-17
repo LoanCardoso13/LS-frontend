@@ -21,11 +21,18 @@
 function findAverages(arr, size) {
   let answer = [];
   let anchor = 0;
-  let runner = size;
+  let runner = 0;
+  let sum = 0;
 
   while (runner <= arr.length) {
-    answer.push(getAvg(arr.slice(anchor, runner)));
-    anchor++;
+    if (runner < size) {
+      sum += arr[runner];
+    } else {
+      answer.push(sum / size);
+      sum -= arr[anchor];
+      sum += arr[runner];
+      anchor++;
+    }
     runner++;
   }
 
