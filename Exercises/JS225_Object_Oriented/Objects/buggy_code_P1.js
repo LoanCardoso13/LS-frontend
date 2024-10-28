@@ -34,3 +34,32 @@ function createGreeter(name) {
 However, it instead results in an error. What is the problem with the code? Why isn't it producing the expected results?
 
 */
+
+function createGreeter(name) {
+  return {
+    name,
+    morning: 'Good Morning',
+    afternoon: 'Good Afternoon',
+    evening: 'Good Evening',
+    greet(timeOfDay) {
+      let msg = '';
+      switch (timeOfDay) {
+        case 'morning':
+          msg += `${this.morning} ${this.name}`;
+          break;
+        case 'afternoon':
+          msg += `${this.afternoon} ${this.name}`;
+          break;
+        case 'evening':
+          msg += `${this.evening} ${this.name}`;
+          break;
+      }
+
+      console.log(msg);
+    },
+  };
+}
+
+// It wasn't working due to the lack of the 'this' keyword in order for an instance object's method refer to its own property.
+const helloVictor = createGreeter('Victor');
+helloVictor.greet('morning');

@@ -11,3 +11,13 @@ console.log(objectsEqual({}, {}));                                      // true
 console.log(objectsEqual({a: 'foo', b: undefined}, {a: 'foo', c: 1}));  // false
 
 */
+
+function objectsEqual(obj1, obj2) {
+  return String(Object.entries(obj1).sort()) === String(Object.entries(obj2).sort());
+}
+
+console.log(objectsEqual({a: 'foo'}, {a: 'foo'}));                      // true
+console.log(objectsEqual({a: 'foo', b: 'bar'}, {a: 'foo'}));            // false
+console.log(objectsEqual({a: 'foo', b: 'bar'}, {b: "bar", a: 'foo'}));  // true
+console.log(objectsEqual({}, {}));                                      // true
+console.log(objectsEqual({a: 'foo', b: undefined}, {a: 'foo', c: 1}));  // false
