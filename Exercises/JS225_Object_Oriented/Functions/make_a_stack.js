@@ -7,3 +7,19 @@ Create a function newStack, that, when called, returns a stack object with three
 Internally, use an array to implement the stack. Make sure that the array is not accessible from outside the methods.
 
 */
+
+let newStack = function () {
+  let stack = [];
+
+  return {
+    push(value) {
+      stack.push(value);
+    },
+    pop() {
+      return stack.pop();
+    },
+    printStack {
+      stack.forEach(val => console.log(val));
+    },
+  }
+}

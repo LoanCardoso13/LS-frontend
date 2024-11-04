@@ -16,3 +16,5 @@ pushIt();
 // more code
 
 */
+
+// No. As long as the 'pushIt' function exist it will keep a reference to the 'array' in its closure as it is necessary for its operation.

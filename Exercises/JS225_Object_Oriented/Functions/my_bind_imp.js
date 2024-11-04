@@ -5,3 +5,22 @@ Our earlier implementation of the Function.prototype.bind was simplistic. Functi
 Alter the myBind function written in the previous exercise to support partial function application of additional arguments to the original function.
 
 */
+
+function myBind(func, obj, ...args1) {
+  return function (...args2) {
+    return func.apply(obj, args1.concat(args2));
+  }
+}
+
+let myFunction =  function (a, b) {
+  console.log(this);
+  console.log(a, b);
+}
+
+let obj = {
+  a: 1,
+  b: 2,
+}
+
+myBindedFunction = myBind(myFunction, obj, 1);
+myBindedFunction(3);
