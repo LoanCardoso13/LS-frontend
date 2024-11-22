@@ -214,6 +214,7 @@ kitchenPotReporter.itemInfo();
 // category: cooking
 // quantity: 3
 
+console.log();
 ItemManager.update('KITCO', { quantity: 10 });
 kitchenPotReporter.itemInfo();
 // logs
