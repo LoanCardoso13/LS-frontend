@@ -86,88 +86,78 @@ kitchenPotReporter.itemInfo();
 */
 
 class ItemCreator {
-  #isValidItem(code, name, category, quantity) {
-    if (
-      code && name && category && 
-      (name.replace(' ', '').length >= 5) &&
-      (category.split(' ').length === 1 && category.length >= 5)
-    )
-      return true;
-    else {
-      return false;
-    }
-  }
-
-  constructor(code, name, category, quantity) {
-    if (this.#isValidItem(code, name, category, quantity)) {
-      this.code = code;
-      this.name = name;
+  constructor(skuCode, itemName, category, quantity) {
+    if (this.#isValidItem(itemName, category, quantity)) {
+      this.skuCode = skuCode;
+      this.itemName = itemName;
       this.category = category;
       this.quantity = quantity;
     } else {
       this.notValid = true;
     }
   }
+
+  #isValidItem(itemName, category, quantity) {
+    return (
+      itemName.replace(' ', '').length >= 5 &&
+      category.split(' ').length === 1 &&
+      category.length >= 5 &&
+      quantity !== undefined
+    );
+  }
 }
 
 class ItemManager {
-  static items = {};
+  static items = [];
 
-  static create(name, category, quantity) {
-    let code = (name.replace(' ', '').slice(0, 3) + category.slice(0, 2)).toUpperCase();
-    let newItem = new ItemCreator(code, name, category, quantity);
-    if (!newItem.notValid) {
-      ItemManager.items[code] = newItem;
-    } else {
+  static create(itemName, category, quantity) {
+    let skuCode = (itemName.replace(' ', '').slice(0, 3) + category.slice(0, 2)).toUpperCase();
+    let item = new ItemCreator(skuCode, itemName, category, quantity);
+    if (item.notValid) {
       return false;
+    } else {
+      ItemManager.items.push(item);
     }
   }
 
-  static update(code, obj) {
-    Object.keys(obj).forEach(keyToUpdate => ItemManager.items[code][keyToUpdate] = obj[keyToUpdate]);
+  static update(skuCode, obj) {
+    let updatedItem = ItemManager.items.filter(item => item.skuCode === skuCode)[0];
+    Object.keys(obj).forEach(key => updatedItem[key] = obj[key]);
   }
 
-  static delete(code) {
-    delete ItemManager.items[code];
+  static delete(skuCode) {
+    ItemManager.items = ItemManager.items.filter(item => item.skuCode !== skuCode);
   }
 
   static inStock() {
-    Object.keys(ItemManager.items).forEach(key => {
-      if (ItemManager.items[key].quantity > 0) console.log(ItemManager.items[key].name);
-    });
+    return ItemManager.items.filter(item => item.quantity > 0);
   }
 
   static itemsInCategory(category) {
-    Object.keys(ItemManager.items).forEach(key => {
-      if (ItemManager.items[key].category === category) console.log(ItemManager.items[key].name);
-    });
+    return ItemManager.items.filter(item => item.category === category);
   }
 }
 
 class ReportManager {
-  static items = {};
+  static items;
 
-  static init(itemManager) {
-    ReportManager.items = itemManager.items;
+  static init(manager) {
+    ReportManager.items = manager;
   }
 
-  static createReporter(code) {
+  static createReporter(skuCode) {
+    let item = ReportManager.items.items.filter(item => item.skuCode === skuCode)[0];
     return {
-      code: ReportManager.items[code],
       itemInfo() {
-        Object.entries(this.code).forEach(([key, val]) => {
-          console.log(`${key} : ${val}`);
-        })
+        Object.entries(item).forEach(([key, value]) => {
+          console.log(`${key} : ${value}`);
+        });
       },
     }
   }
 
   static reportInStock() {
-    let answer = [];
-    Object.keys(ReportManager.items).forEach(key => {
-      if (ReportManager.items[key].quantity > 0) answer.push(ReportManager.items[key].name);
-    })
-    return answer.join(', ')
+    console.log(ReportManager.items.inStock().map(item => item.itemName).join(', '));
   }
 }
 
@@ -179,32 +169,29 @@ ItemManager.create('football', 'sports', 3);              // valid item
 ItemManager.create('kitchen pot', 'cooking items', 0);
 ItemManager.create('kitchen pot', 'cooking', 3);          // valid item
 
-ItemManager.items;
+console.log(ItemManager.items);
 // returns list with the 4 valid items
-console.log();
 
 ReportManager.init(ItemManager);
 ReportManager.reportInStock();
 // logs soccer ball,football,kitchen pot
-console.log()
 
 ItemManager.update('SOCSP', { quantity: 0 });
-ItemManager.inStock();
+console.log(ItemManager.inStock());
 // returns list with the item objects for football and kitchen pot
-console.log()
-
 ReportManager.reportInStock();
 // logs football,kitchen pot
-console.log()
-
-ItemManager.itemsInCategory('sports');
+console.log(ItemManager.itemsInCategory('sports'));
 // returns list with the item objects for basket ball, soccer ball, and football
-console.log()
-
 ItemManager.delete('SOCSP');
-ItemManager.items;
+console.log();
+console.log();
+console.log();
+console.log();
+console.log(ItemManager.items);
 // returns list with the remaining 3 valid items (soccer ball is removed from the list)
-console.log()
+console.log();
+console.log();
 
 const kitchenPotReporter = ReportManager.createReporter('KITCO');
 kitchenPotReporter.itemInfo();
@@ -213,8 +200,9 @@ kitchenPotReporter.itemInfo();
 // itemName: kitchen pot
 // category: cooking
 // quantity: 3
-
 console.log();
+console.log();
+
 ItemManager.update('KITCO', { quantity: 10 });
 kitchenPotReporter.itemInfo();
 // logs
