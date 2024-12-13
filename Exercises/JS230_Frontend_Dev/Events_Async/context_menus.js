@@ -12,3 +12,18 @@ HTML:
 </main>
 
 */
+
+document.addEventListener('DOMContentLoaded', () => {
+  let sub = document.querySelector('#sub');
+  let main = document.querySelector('main');
+
+  sub.addEventListener('contextmenu', event => {
+    alert("sub");
+    event.stopPropagation();
+  });
+
+  main.addEventListener('contextmenu', () => {
+    alert("main");
+  });
+});
+

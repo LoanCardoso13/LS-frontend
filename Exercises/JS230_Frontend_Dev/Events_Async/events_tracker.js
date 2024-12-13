@@ -98,3 +98,51 @@ divGreen.addEventListener('click', track(event => {
 = 0
 
 */
+
+let tracker;
+
+document.addEventListener('DOMContentLoaded', () => {
+  tracker = {
+    events: [],
+    elements() {
+      return this.events.map(event => event.target);
+    },
+    list() {
+      return [...this.events];
+    },
+    clear() {
+      this.events = [];
+      return this.events.length;
+    }
+  }
+
+  function track(callback) {
+    return function(event) {
+      if (!tracker.events.includes(event)) tracker.events.push(event)
+      return callback(event);
+    }
+  }
+
+  let divRed = document.querySelector('div#red');
+  let divBlue = document.querySelector('div#blue');
+  let divOrange = document.querySelector('div#orange');
+  let divGreen = document.querySelector('div#green');
+
+  divRed.addEventListener('click', track(event => {
+    document.body.style.background = 'red';
+  }));
+
+  divBlue.addEventListener('click', track(event => {
+    event.stopPropagation();
+    document.body.style.background = 'blue';
+  }));
+
+  divOrange.addEventListener('click', track(event => {
+    document.body.style.background = 'orange';
+  }));
+
+  divGreen.addEventListener('click', track(event => {
+    document.body.style.background = 'green';
+  }));
+})
+

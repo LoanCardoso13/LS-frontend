@@ -11,3 +11,12 @@ document.querySelector('#container').addEventListener('click', event => {
 });
 
 */
+
+document.querySelector('html').addEventListener('click', event => {
+  let container = document.querySelector('#container');
+  if (event.currentTarget === container) return;
+  document.querySelector('#container').style = 'display: none';
+});
+
+document.querySelector('#container').addEventListener('click', event => {
+});

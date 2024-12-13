@@ -43,3 +43,58 @@ When the user clicks the "Clear" button, the program should reset both dropdowns
 (video showing expected behavior: https://launchschool.com/exercises/f65daecc)
 
 */
+
+const CLASSIFICATIONS = {
+  Vertebrate:	['Bear', 'Turtle', 'Whale', 'Salmon', 'Ostrich'],
+  'Warm-blooded':	['Bear', 'Whale', 'Ostrich'],
+  'Cold-blooded':	['Salmon', 'Turtle'],
+  Mammal:	['Bear', 'Whale'],
+  Bird:	['Ostrich'],
+}
+const ANIMALS = {
+  Bear:	['Vertebrate', 'Warm-blooded', 'Mammal'],
+  Turtle:	['Vertebrate', 'Cold-blooded'],
+  Whale:	['Vertebrate', 'Warm-blooded', 'Mammal'],
+  Salmon:	['Vertebrate', 'Cold-blooded'],
+  Ostrich:	['Vertebrate', 'Warm-blooded', 'Bird'],
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  let drop1 = document.querySelector('#animal-classifications');
+  let drop2 = document.querySelector('#animals');
+
+  drop1.addEventListener('click', event => {
+    let availableAnimals = CLASSIFICATIONS[event.target.value];
+
+    if (!availableAnimals) return;
+
+    let options = drop2.querySelectorAll('option');
+    let optionsArr = [].slice.call(options);
+
+    optionsArr.forEach(nodeOption => {
+      if (availableAnimals.includes(nodeOption.value)) {
+        nodeOption.style.display = '';
+      } else {
+        nodeOption.style.display = 'none';
+      }
+    });
+  })
+
+  drop2.addEventListener('click', event => {
+    let availableClassifications = ANIMALS[event.target.value];
+
+    if (!availableClassifications) return;
+
+    let options = drop1.querySelectorAll('option');
+    let optionsArr = [].slice.call(options);
+
+    optionsArr.forEach(nodeOption => {
+      if (availableClassifications.includes(nodeOption.value)) {
+        nodeOption.style.display = '';
+      } else {
+        nodeOption.style.display = 'none';
+      }
+    });
+  })
+})
+

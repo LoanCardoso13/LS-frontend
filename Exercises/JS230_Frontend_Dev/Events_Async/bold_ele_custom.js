@@ -25,3 +25,22 @@ Implement a function that makes an element bold and allows the user of the funct
 = "bold"
 
 */
+
+document.addEventListener('DOMContentLoaded', () => {
+  function makeBold(ele, func) {
+    func(ele);
+  }
+
+  let sectionElement = document.querySelector('section');
+
+  makeBold(sectionElement, function(elem) {
+    elem.classList.add('highlight');
+    elem.style.fontWeight = 'bold';
+  });
+
+  console.log(sectionElement.classList.contains('highlight'));
+  // true
+  console.log(sectionElement.style.fontWeight);
+  // "bold"
+})
+

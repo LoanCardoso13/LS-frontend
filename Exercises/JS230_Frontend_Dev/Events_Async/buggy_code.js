@@ -18,3 +18,6 @@ HTML:
 </a>
 
 */
+
+// Stopping the bubbling up propagation of the Event in the DOM tree doesn't prevent browser's default behavior which, in this 
+// case is to link the user to another page.

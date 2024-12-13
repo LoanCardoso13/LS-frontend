@@ -87,3 +87,55 @@ Scenario 6: delegateEvent(element2, 'p', 'click', callback);
 * If you click anywhere else, the callback function does not trigger.
 
 */
+
+document.addEventListener('DOMContentLoaded', () => {
+  let added;
+
+  function walk(node, element, eventType, callback) {
+    if (node === null) return;
+
+    if (
+      node.tagName === element.tagName &&
+      element.parentElement.contains(node)
+    ) {
+      element.addEventListener(eventType, callback);
+      added = true;
+    } 
+
+    for (let index = 0; index < node.children.length; index += 1) { // for each child node
+      walk(node.children[index], element, eventType, callback);                         // recursively call walk()
+    }
+  }
+
+  function delegateEvent(parentElement, selector, eventType, callback) {
+    let element = parentElement.querySelector(selector);
+
+    walk(parentElement, element, eventType, callback);
+
+    return added;
+  }
+
+// --- TESTING ---
+  // Possible elements for use with the scenarios
+  const element1 = document.querySelector('table');
+  const element2 = document.querySelector('main section');
+  const element3 = document.querySelector('main');
+  // Possible callback for use with the scenarios
+  const callback = ({target, currentTarget}) => {
+    alert(`Target: ${target.tagName}\nCurrent Target: ${currentTarget.tagName}`);
+  };
+
+  // console.log(delegateEvent(element1, 'p', 'click', callback));
+  // console.log(delegateEvent(element2, 'p', 'click', callback));
+  // console.log(delegateEvent(element2, 'h1', 'click', callback));
+  // console.log(delegateEvent(element3, 'h1', 'click', callback));
+  // console.log(delegateEvent(element3, 'aside p', 'click', callback));
+  console.log(delegateEvent(element2, 'p', 'click', callback));
+
+  const newP = document.createElement('P');
+  const newContent = document.createTextNode('New Paragraph');
+  newP.appendChild(newContent);
+
+  element2.appendChild(newP);
+});
+

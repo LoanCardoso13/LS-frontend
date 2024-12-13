@@ -70,3 +70,42 @@ header ul {
 (video showing expected behavior: https://launchschool.com/exercises/8a603ab4)
 
 */
+
+document.addEventListener('DOMContentLoaded', () => {
+  let list = document.querySelector('ul');
+  let articleNodes = document.querySelectorAll('article');
+  let articleNodesArr = [].slice.call(articleNodes);
+  let main = document.querySelector('main');
+
+  main.addEventListener('click', event => {
+    main.classList.toggle('highlight');
+    articleNodesArr.forEach(article => article.classList.remove('highlight'));
+  });
+
+  articleNodesArr.forEach(article => {
+    article.addEventListener('click', event => {
+      main.classList.remove('highlight');
+      let articleId = event.currentTarget.id;
+      articleNodesArr.forEach(article => {
+        if (article.id === articleId) {
+          article.classList.add('highlight');
+        } else {
+          article.classList.remove('highlight');
+        }
+      });
+      event.stopPropagation();
+    });
+  });
+
+  list.addEventListener('click', event => {
+    let articleId = event.target.textContent.trim().toLowerCase().replace(' ','-');
+    articleNodesArr.forEach(article => {
+      if (article.id === articleId) {
+        article.classList.add('highlight');
+      } else {
+        article.classList.remove('highlight');
+      }
+    });
+  });
+});
+
