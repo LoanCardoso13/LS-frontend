@@ -15,3 +15,35 @@ When running the JavaScript code, be sure that you're not doing cross origin req
 For example, if you've created a public/exercise1.html file you'll access it via: http://localhost:3000/exercise1.html.
 
 */
+
+document.addEventListener('DOMContentLoaded', () => {
+  let staff;
+  let url = 'http://localhost:3000'
+  let board = document.body;
+  let requestAllStaff = new XMLHttpRequest();
+
+  requestAllStaff.open('GET', url + '/api/staff_members');
+
+  requestAllStaff.addEventListener('load', event => {
+    staff = JSON.parse(requestAllStaff.response);
+    
+    if (staff.length === 0) alert('No schedules available for booking!');
+
+    staffIds = staff.map(member => member.id);
+    staffIds.forEach(id => {
+      let schedulesRequest = new XMLHttpRequest();
+      schedulesRequest.open('GET', url + `/api/schedules/${id}`);
+      
+      schedulesRequest.addEventListener('load', event => {
+        let node = document.createElement('p');
+        node.textContent = `staff ${id}: ${JSON.parse(schedulesRequest.response).length}`;
+        board.appendChild(node);
+      });
+
+      schedulesRequest.send();
+    });
+  });
+
+  requestAllStaff.send();
+});
+

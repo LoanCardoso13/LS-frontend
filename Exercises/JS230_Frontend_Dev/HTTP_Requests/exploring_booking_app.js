@@ -50,3 +50,25 @@ Did all students book a schedule?
 Note: Some students have reported that they needed to install the http-errors NPM package before they could run their program.
 
 */
+
+/*
+
+How many staff are there?
+5
+
+How many students are there?
+5
+
+How many schedules exist?
+9
+
+How many schedules have bookings?
+There is no route that will provide this information.
+
+Do all staff have schedules?
+No, Esperanza Doyle and Lacey Kautzer I don't have a schedule.
+
+Did all students book a schedule?
+There is no route that will provide this information.
+
+*/
