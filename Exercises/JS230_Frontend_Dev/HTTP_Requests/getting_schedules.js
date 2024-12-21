@@ -14,8 +14,6 @@ When running the JavaScript code, be sure that you're not doing cross origin req
 
 For example, if you've created a public/exercise1.html file you'll access it via: http://localhost:3000/exercise1.html.
 
-*/
-
 document.addEventListener('DOMContentLoaded', () => {
   let staff;
   let url = 'http://localhost:3000'
@@ -47,3 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
   requestAllStaff.send();
 });
 
+*/
