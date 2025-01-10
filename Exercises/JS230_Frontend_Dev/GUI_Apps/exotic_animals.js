@@ -10,3 +10,21 @@ Requirements
 * Don't display the caption tooltip when the user moves the cursor off the image before the two second time delay elapses.
 
 */
+
+$(function() {
+  let timeout;
+
+  $('img').on('mouseout', e => {
+    clearTimeout(timeout);
+    $('img').next().css("display", "none");
+  });
+
+  $('img').on('mouseover', e => {
+    timeout = setTimeout(() => {
+      $( e.target ).next().css({
+        display: "block",
+        position: "absolute",
+      });
+    }, 2000);
+  });
+});
