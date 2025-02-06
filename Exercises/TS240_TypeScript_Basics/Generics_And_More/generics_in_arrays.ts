@@ -7,3 +7,13 @@ Expected output for filterByType<string>(["hello", "world", 42, true], "string")
 ["hello", "world"]
 
 */
+
+function isType<T>(val: unknown, type: string): val is T {
+  return typeof val === type;
+}
+
+function filterByType<T>(arr: unknown[], type: string): T[] {
+  return arr.filter(ele => isType<T>(ele, type));
+}
+
+console.log(filterByType<string>(["hello", "world", 42, true], "string"));

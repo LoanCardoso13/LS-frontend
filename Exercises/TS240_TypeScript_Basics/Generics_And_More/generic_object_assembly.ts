@@ -7,3 +7,26 @@ Expected outcome:
 It should be a type-safe structure that can be inspected.
 
 */
+
+// type Key = string;
+// type Value = number;
+//
+// interface KeyValuePair {
+//   key: Key;
+//   value: Value;
+// }
+//
+// const myObj: KeyValuePair = {
+//   key: 'aKey',
+//   value: 13,
+// }
+
+interface KeyValuePair<Key, Value> {
+  key: Key;
+  value: Value;
+}
+
+const myObj: KeyValuePair<string, number> = {
+  key: 'aKey',
+  value: 13,
+}

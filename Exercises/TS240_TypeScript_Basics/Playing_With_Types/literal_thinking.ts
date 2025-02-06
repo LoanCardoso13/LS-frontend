@@ -7,3 +7,9 @@ Expected outcome:
 * A variable that can only be one of the few predefined strings.
 
 */
+
+type Direction = "left" | "right" | "up" | "down";
+
+let move: Direction = "left";
+
+move = "north";

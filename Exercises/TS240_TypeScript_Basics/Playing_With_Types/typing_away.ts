@@ -9,3 +9,12 @@ Expected outcome:
 * A variable with a boolean value, annotated with type boolean.
 
 */
+
+(function () {
+
+let name: string = "Joe";
+let age: number = 37;
+let idOld: boolean = false;
+
+})();
+

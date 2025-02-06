@@ -8,3 +8,7 @@ Expected output:
 [100]
 
 */
+
+function wrapInArray<T>(ele: T): T[] {
+  return [ele];
+}

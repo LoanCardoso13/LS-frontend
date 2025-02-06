@@ -11,3 +11,7 @@ Expected output for firstElement([]):
 undefined
 
 */
+
+function firstElement(arr: any[]): number | void {
+  return arr[0] ? arr[0] : undefined;
+}

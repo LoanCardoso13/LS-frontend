@@ -7,3 +7,7 @@ Expected outcome:
 * A string combining the name and age.
 
 */
+
+function greet(name: string, age: number): string {
+  return `Hello, your name is ${name}, and you are ${age} years old.`;
+}

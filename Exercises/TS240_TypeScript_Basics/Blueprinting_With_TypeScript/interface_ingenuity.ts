@@ -7,3 +7,15 @@ Expected outcome:
 * An interface Car used to type-check an object myCar.
 
 */
+
+interface Car {
+  make: string;
+  model: string;
+  year: number;
+}
+
+const myCar: Car = {
+  make: 'Honda',
+  model: 'Civic',
+  year: 2013,
+}

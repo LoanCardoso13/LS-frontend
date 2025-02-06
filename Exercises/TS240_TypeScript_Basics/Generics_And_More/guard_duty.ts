@@ -11,3 +11,13 @@ Expected output for printId("202"):
 Your ID is a string
 
 */
+
+function printId(id: string | number): string {
+  if (typeof id === 'string') {
+    return 'Your ID is a string';
+  } else if (typeof id === 'number') {
+    return 'Your ID is a number';
+  } else {
+    return 'Something went wrong.';
+  }
+}

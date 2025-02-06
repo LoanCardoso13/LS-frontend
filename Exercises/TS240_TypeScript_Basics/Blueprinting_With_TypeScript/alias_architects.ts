@@ -7,3 +7,10 @@ Expected outcome:
 * A type alias Contact that can be used to create contact objects with certain properties.
 
 */
+
+type Contact = {
+  firstName: string;
+  lastName: string;
+  age: number;
+  isOnline: boolean;
+}

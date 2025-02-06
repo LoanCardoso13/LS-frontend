@@ -7,3 +7,5 @@ Expected outcome:
 * An array that allows only strings.
 
 */
+
+let colors: string[] = ["red", "green", "blue"];

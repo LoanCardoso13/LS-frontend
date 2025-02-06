@@ -7,3 +7,9 @@ Expected outcome:
 * An employee object with specified types for its properties.
 
 */
+
+const employee: {id: number, name: string, department: string} = {
+  id: 13,
+  name: "Jow",
+  department: "SWE",
+}

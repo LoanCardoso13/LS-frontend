@@ -7,3 +7,7 @@ Expected outcome:
 * When given ['hello', 'world'], the function returns ['HELLO', 'WORLD'].
 
 */
+
+function toUpperCaseArray(arr: string[]): string[] {
+  return arr.map(ele => ele.toUpperCase());
+}

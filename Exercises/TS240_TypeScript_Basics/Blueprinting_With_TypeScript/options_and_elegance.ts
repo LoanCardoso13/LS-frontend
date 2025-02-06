@@ -14,3 +14,13 @@ Expected outcome:
 * The Contact type alias with optional age and isOnline properties.
 
 */
+
+(function() {
+  type Contact = {
+    firstName: string;
+    lastName: string;
+    age?: number;
+    isOnline?: boolean;
+  };
+})();
+

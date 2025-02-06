@@ -7,3 +7,10 @@ Expected outcome:
 * An error indicating a type mismatch.
 
 */
+
+(function() {
+
+  let name = "Joe";
+  name = 13;
+
+})();

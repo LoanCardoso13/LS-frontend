@@ -7,3 +7,9 @@ Expected outcome:
 * An interface Account where accountCreationDate cannot be modified.
 
 */
+
+interface Account {
+  username: string;
+  email: string;
+  readonly accountCreationDate: string;
+}
