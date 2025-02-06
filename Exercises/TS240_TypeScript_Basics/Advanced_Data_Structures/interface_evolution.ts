@@ -7,3 +7,18 @@ Expected outcome:
 The Employee type object should adhere to both Person properties and its own employeeId.
 
 */
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Employee extends Person {
+  employeeId: number;
+}
+
+const myself: Employee = {
+  name: "Joe",
+  age: 37,
+  employeeId: 13,
+}

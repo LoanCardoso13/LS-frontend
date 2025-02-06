@@ -7,3 +7,15 @@ Expected outcome:
 The function should be able to take any key of UserData and print out the corresponding value.
 
 */
+
+interface UserData {
+  name: string;
+  age: number;
+  isOn: boolean;
+}
+
+type UserProps = keyof UserData;
+
+function printValue(obj: UserData, key: UserProps) {
+  return obj[key];
+}

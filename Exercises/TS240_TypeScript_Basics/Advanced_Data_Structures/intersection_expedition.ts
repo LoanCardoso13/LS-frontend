@@ -10,3 +10,28 @@ pet.meow();
 // Output should be "Meow"
 
 */
+
+interface Dog {
+  bark(): string;
+}
+
+interface Cat {
+  meow(): string;
+}
+
+type Pet = Dog & Cat;
+
+
+const pet: Pet = {
+  bark() {
+      return "Woof";
+  },
+  meow() {
+      return "Meow";
+  },
+};
+
+console.log(pet.bark());
+// Output should be "Woof"
+console.log(pet.meow());
+// Output should be "Meow"
