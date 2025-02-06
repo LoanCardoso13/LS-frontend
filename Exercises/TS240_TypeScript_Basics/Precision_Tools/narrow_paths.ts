@@ -11,3 +11,14 @@ Expected output for printLength(["hello", "world"]):
 Array count: 2
 
 */
+
+function printLength(ele: string | string[]): void {
+  if (Array.isArray(ele)) {
+    console.log(`Array count: ${ele.length}`);
+  } else {
+    console.log(`String length: ${ele.length}`);
+  }
+}
+
+printLength("hello");
+printLength(["hello", "world"]);

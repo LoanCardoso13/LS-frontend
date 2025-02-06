@@ -11,3 +11,14 @@ Expected output for isStringArray(["test", "string"]):
 true
 
 */
+
+function isString(ele: unknown): boolean {
+  return typeof ele === 'string';
+}
+
+function isStringArray(arr: unknown[]): void {
+  console.log(arr.every(ele => isString(ele)))
+}
+
+isStringArray([1, 2, 3]);
+isStringArray(["test", "string"]);

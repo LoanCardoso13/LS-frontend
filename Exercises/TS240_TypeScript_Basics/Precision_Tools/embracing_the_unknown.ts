@@ -7,3 +7,9 @@ Expected output:
 If the passed parameter is a string, it should be logged; otherwise, nothing happens.
 
 */
+
+function logUnknown(ele: unknown): void {
+  if (typeof ele === 'string') {
+    console.log(ele);
+  }
+}
